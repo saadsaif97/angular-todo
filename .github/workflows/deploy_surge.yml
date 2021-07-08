@@ -32,6 +32,6 @@ jobs:
         # clean install for our vm
         run: npm ci
       - name: Build command
-        run: npm run build
+        run: ng build
       - name: Deploy to surge
-        run: surge ./build saad-saif-angular-todo.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        run: surge ./dist saad-saif-angular-todo.surge.sh --token ${{ secrets.SURGE_TOKEN }}
