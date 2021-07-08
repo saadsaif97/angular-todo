@@ -1,0 +1,26 @@
+<style>
+   .task{
+      background-color: salmon;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-self: center;
+      justify-content: space-between;
+      cursor: pointer;
+   }
+   .completed{
+      border-left: 5px solid greenyellow;
+   }
+   .completed p{
+      text-decoration: line-through;
+   }
+
+   i:hover{
+      color: red;
+   }
+</style>
+
+<div class="task" [ngClass]="{'completed': task.completed}" (dblclick)="emitCompleteTask(task)">
+   <p>{{ task.text }}</p>
+   <i class="fa fa-times" (click)="emitDeleteTask(task)"></i>
+</div>
