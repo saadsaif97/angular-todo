@@ -8,7 +8,7 @@ import { Task } from './../../interfaces/Task';
 })
 export class ListItemComponent implements OnInit {
   @Input() task!: Task;
-  @Output() completeTask: EventEmitter<any>  = new EventEmitter()
+  @Output() toggleTaskCompletion: EventEmitter<any>  = new EventEmitter()
   @Output() deleteTask: EventEmitter<any>  = new EventEmitter()
 
   constructor() {}
@@ -16,8 +16,8 @@ export class ListItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  emitCompleteTask(task: Task): void{
-    this.completeTask.emit(task.id)
+  emitToggleTaskCompletion(task: Task): void{
+    this.toggleTaskCompletion.emit(task.id)
   }
 
   emitDeleteTask(task: Task): void{

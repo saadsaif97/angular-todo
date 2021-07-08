@@ -1,0 +1,27 @@
+<style>
+   form {
+      padding: 20px 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      margin-bottom: 20px;
+   }
+
+</style>
+
+
+<form>
+   <div class="mb-3">
+      <label for="text">Text:</label>
+      <input type="text" name="text" [(ngModel)]="form.text" class="form-control">
+   </div>
+   <div class="mb-3">
+      <div class="form-check">
+         <input class="form-check-input" name="completed" [(ngModel)]="form.completed" type="checkbox"
+            id="flexCheckDefault">
+         <label class="form-check-label" for="flexCheckDefault">
+            completed
+         </label>
+      </div>
+   </div>
+   <button class="btn btn-success btn-sm" (click)="createNewTask()">Create New Task</button>
+</form>

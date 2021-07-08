@@ -42,11 +42,19 @@ export class TaskListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  completeTask(id: number): void{
+  toggleTaskCompletion(id: number): void{
     this.tasks.map(task => task.id == id ? task.completed = !task.completed : task.completed)
   }
 
   deleteTask(id: number): void{
     this.tasks = this.tasks.filter(task => task.id !== id)
+  }
+
+  addNewTask(task: Task): void{
+    let newTask = {
+      id: Math.random() * 100000,
+      ...task
+    }
+    this.tasks.push(newTask)
   }
 }

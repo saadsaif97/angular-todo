@@ -1,6 +1,11 @@
 <style>
-   .task{
-      background-color: salmon;
+   .task {
+      --teal-1: rgb(36, 170, 141);
+      --teal-2: rgb(29, 199, 128);
+   }
+
+   .task {
+      background-color: var(--teal-1);
       color: white;
       padding: 10px 20px;
       display: flex;
@@ -8,19 +13,29 @@
       justify-content: space-between;
       cursor: pointer;
    }
-   .completed{
-      border-left: 5px solid greenyellow;
+
+   .completed {
+      border-top: 5px solid var(--teal-2);
    }
-   .completed p{
+
+   .completed p {
       text-decoration: line-through;
    }
 
-   i:hover{
+   i:hover {
       color: red;
    }
+
+   .form-check-input:checked {
+      background-color: var(--teal-2);
+      border-color: var(--teal-2);
+   }
+
 </style>
 
-<div class="task" [ngClass]="{'completed': task.completed}" (dblclick)="emitCompleteTask(task)">
+<div class="task" [ngClass]="{'completed': task.completed}" (dblclick)="emitToggleTaskCompletion(task)">
+   <input class="form-check-input" type="checkbox" id="flexCheckDefault" (click)="emitToggleTaskCompletion(task)"
+      [checked]="task.completed">
    <p>{{ task.text }}</p>
    <i class="fa fa-times" (click)="emitDeleteTask(task)"></i>
 </div>
