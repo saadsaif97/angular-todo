@@ -29,6 +29,12 @@ export class TaskListComponent implements OnInit {
       completed: false,
       date: new Date('2021 07 09').toDateString()
     },
+    {
+      id: 4,
+      text: 'Practice Practice Practice Angular',
+      completed: false,
+      date: new Date('2021 07 10').toDateString()
+    },
   ];
 
   constructor() { }
